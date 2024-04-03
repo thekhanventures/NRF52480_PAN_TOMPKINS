@@ -252,7 +252,7 @@ void panTompkins(const dataType *inputSignal, dataType *outputSignal, int inputS
 
 		}
 		
-		/*
+		
 		// If a R-peak was detected, the RR-averages must be updated.
 		if (qrs)
 		{
@@ -412,7 +412,7 @@ void panTompkins(const dataType *inputSignal, dataType *outputSignal, int inputS
 				}
 			}
 		}
-		*/
+		
         outputSignal[sample - 1] = qrs;
         if (sample > DELAY + BUFFSIZE)
 			outputSignal[sample]=outputSignal[sample - 1]; // fix this
@@ -424,7 +424,7 @@ void panTompkins(const dataType *inputSignal, dataType *outputSignal, int inputS
 	
     // Output the last remaining samples on the buffer
 	for (int i = 0; i < inputSize; i++) {
-		printf("%d\t%d\n", i, inputSignal[i]);
+		
         printf("%d\t%d\n", i, outputSignal[i]);
     }
 	
@@ -448,130 +448,7 @@ int main(void){
     int outputSignal[BUFFSIZE] = {0};
 
     // Call panTompkins function to process the input signal
-	
-    
-	
-	int j;
-	for (j = 0; j < 160; j++){
-
-	
 	panTompkins(inputSignal, outputSignal, BUFFSIZE);
-
-	}
-	k_sleep(K_MSEC(4000));
-
-	for (j = 0; j < 160; j++){
-
-	
-	panTompkins(inputSignal, outputSignal, BUFFSIZE);
-
-	}
-	k_sleep(K_MSEC(4000));
-
-	for (j = 0; j < 160; j++){
-
-	
-	panTompkins(inputSignal, outputSignal, BUFFSIZE);
-
-	}
-	k_sleep(K_MSEC(4000));
-
-	for (j = 0; j < 160; j++){
-
-	
-	panTompkins(inputSignal, outputSignal, BUFFSIZE);
-
-	}
-	k_sleep(K_MSEC(4000));
-
-	for (j = 0; j < 160; j++){
-
-	
-	panTompkins(inputSignal, outputSignal, BUFFSIZE);
-
-	}
-	k_sleep(K_MSEC(4000));
-
-	for (j = 0; j < 160; j++){
-
-	
-	panTompkins(inputSignal, outputSignal, BUFFSIZE);
-
-	}
-	k_sleep(K_MSEC(4000));
-
-	for (j = 0; j < 160; j++){
-
-	
-	panTompkins(inputSignal, outputSignal, BUFFSIZE);
-
-	}
-	k_sleep(K_MSEC(4000));
-
-	for (j = 0; j < 160; j++){
-
-	
-	panTompkins(inputSignal, outputSignal, BUFFSIZE);
-
-	}
-
-	k_sleep(K_MSEC(4000));
-
-	for (j = 0; j < 160; j++){
-
-	
-	panTompkins(inputSignal, outputSignal, BUFFSIZE);
-
-	}
-
-	k_sleep(K_MSEC(4000));
-
-	for (j = 0; j < 160; j++){
-
-	
-	panTompkins(inputSignal, outputSignal, BUFFSIZE);
-
-	}
-
-	k_sleep(K_MSEC(4000));
-
-	for (j = 0; j < 160; j++){
-
-	
-	panTompkins(inputSignal, outputSignal, BUFFSIZE);
-
-	}
-
-	/*
-	k_timer_start(&my_timer, K_MSEC(LOOP_TIMEOUT_MS), K_NO_WAIT); // Start the timer
-
-    uint32_t start_time = k_uptime_get_32(); // Get the current time
-    while (run_loop) {
-        // Perform your actions within the loop here
-        
-        // Check if the elapsed time exceeds the timeout
-        if (k_uptime_get_32() - start_time >= LOOP_TIMEOUT_MS) {
-            
-            break;
-        }
-    }
-
-    
-
-    k_timer_stop(&my_timer); // Stop the timer
-	*/
-    
-
-	
-
-	
-	
-	// Count the number of '1's in the outputSignal array
-    //int onesCount = countOnes(outputSignal, BUFFSIZE);
-
-    // Print the result
-    //printf("Number of ones in the outputSignal array: %d\n", onesCount);
-
 
     return 0;
 
